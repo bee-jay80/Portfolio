@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+{% block style%}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock style%}
+
+{% block extrahead %}
+<style>
+    body, input {
+        color: var(--fg);
+        font: 1em/1.5 Hind, sans-serif;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .search-div, input, .caret {
+        margin: auto;
+    }
+    .tag_btn{
+        margin-top:10px;
+    }
+    .row{
+        padding:9px;
+    }
+    .project{
+        margin-bottom:50px;
+    }
+    .search-div{
+        margin-top:60px;
+    }
+    .project_container{
+        min-width: 300px;
+    }
+</style>
+{% endblock extrahead %}
+
+{% block content %}
+<div class="search-div">
+    <label for="search">Search</label>
+	<input id="search" type="search" pattern=".*\S.*" required title="Search">
+	<span class="caret">
+    </span>
+</div>
+<div class="tag-container text-center">
+    {% for tag in tags %}
+        <button class="tag_btn" data-tag="{{tag.name|lower}}">{{tag.name}}</button>
+    {% endfor %}
+</div>
+
+<div class="product_view">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Projects</h1>
+            <hr>
+            <div class="row">
+                {% for project in projects %}
+              <div class="col-md-3 project project_container" data-name="{{project.title|lower}}" data-tags="{{project.tags.all|join:', '|lower}}">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="category-image">
+                            <img src="{{project.default_image.url}}" class="rounded float-start w-100" height="150px" alt="{{project.title}} image">
+                        </div>
+                        <h4 class="text-center"><a href = " {% url 'project' project.id %}">{{project.title}}</a></h4>
+                        <p class="text-center project_description">{{project.description}}</p>
+                        <p class="text-center"> Tags: {{project.tags.all|join:', '|lower}}</p>
+                    </div>
+                </a>
+                </div>
+              </div>
+             {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js%}
+<script src="{% static 'js/homes.js' %}"></script>
+{% endblock extra_js%}

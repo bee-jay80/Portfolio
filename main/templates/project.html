@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Projects
+{% endblock title %}
+{% block style%}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock style%}
+{% block extrahead %}
+<style>
+    .description{
+        margin-bottom: 67px;
+    }
+</style>
+{% endblock extrahead %}
+{% block content %}
+{% load static %}
+<div class="slider">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <img src="{{project.default_image.url}}"  class="d-block w-100" height="100%" alt="...">
+          </div>
+          {% for image in project.images.all  %}
+          <div class="carousel-item">
+            <img src="{{image.image.url}}" class="d-block w-100" height="100%" alt="...">
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="description">
+    <h1 class="text-center text">{{project.title}}</h1>
+    <h3 class="text-center text">{{project.description}}</h3>
+    <h5 class="text-center text"> Tags: {{project.tags.all|join:', '}}</h5>
+    <p class="text-center text">Link: <a href="{{project.link}}" target="blank"> {{project.link}}</a></p>
+</div>
+{% endblock content %}
+
+{% block extra_js%}
+<script src="{% static 'js/project.js' %}"></script>
+{% endblock extra_js%}

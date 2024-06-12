@@ -1,0 +1,48 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<style>
+    /* social media icons styling */
+    .social-icons {
+        font-size: 36px;
+        cursor: pointer;
+    }
+    .fa-facebook:hover,.fa-instagram:hover,.fa-twitter:hover,.fa-linkedin:hover, .fa-twitch:hover {
+        color: #008000;
+    }
+    .fab {
+        color: #000000;
+    }
+    /* footer styling */
+    #footer{
+        background-color: #8779de;
+        text-align: center;
+    }
+</style>
+<body>
+    <footer id="footer">
+       <div class="container-fluid">
+           <!-- social media icons -->
+           <div class="social-icons mt-4">
+               <a href="https://web.facebook.com/profile.php?id=61561097455406" target="_blank"><img
+                       src="{% static 'image/icons8-facebook.svg' %}" alt=""><i class="fab fa-facebook"></i></a>
+               <a href="https://www.instagram.com/bright_dev01/" target="_blank">
+                <img src="{% static 'image/icons8-instagram.svg' %}"
+                       alt=""><i class="fab fa-instagram"></i></a>
+               <a href="https://x.com/bee_jay089" target="_blank">
+                <img src="{% static 'image/icons8-twitter.svg' %}" alt=""><i
+                       class="fab fa-twitter"></i></a>
+               <a href="https://www.linkedin.com/in/john-bright-6082b82ab/" target="_blank">
+                <img src="{% static 'image/icons8-linkedin.svg' %}" alt=""><i
+                       class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/qr/YEFIBJQAEXVWK1" target="_blank">
+                <img src="{% static 'image/icons8-whatsapp.gif' %}"
+                        alt=""><i class="fab fa-twitch"></i></a>
+           </div>
+       </div>
+   </footer>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Contact
+{% endblock title %}
+{% block style%}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock style%}
+
+{% block extrahead %}
+{% endblock extrahead %}
+
+{% block content %}
+<!-- contact section-->
+<section id="contact">
+    <div class="container mt-3 contactContent">
+        <h1 class="text-center">Contact Me</h1>
+            <div class="col-lg-6 contact">
+                <!-- form fields -->
+                <form action="https://formspree.io/f/mjvnygre" method="POST">
+                    <input type="text" name="name" class="" placeholder=" Your name" required>
+                    <input type="email" name="email" class="" placeholder="Your email" required>
+                    <div class="mb-3 mt-3">
+                        <textarea class="" rows="5" id="comment" name="messages"
+                            placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit">Contact Me</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
