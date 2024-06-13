@@ -1,0 +1,23 @@
+:root {
+    --bg: #e3e4e8;
+    --fg: #17181c;
+    --input: #ffffff;
+    --primary: #255ff4;
+    --dur: 1s;
+}
+
+.slider{
+    width:60%;
+    margin: 70px auto;
+    border: none;
+    border-radius: 100px;
+}
+.carouse{
+    border: none;
+    border-radius: 100px;
+}
+.text{
+    color: #17181c;
+    font-variant: normal;
+    font-stretch: condensed;
+    font-family: Helvetica, Arial, monospace;}
